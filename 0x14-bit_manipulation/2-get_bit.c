@@ -1,22 +1,20 @@
 #include "main.h"
-#include <stdio.h>
-
-
 /**
- * main - check the code for Holberton School students.
- *
- * Return: Always 0.
+ * get_bit - A function that gets a bit at index
+ * @n: The number to get bit from
+ * @index: The index where the bit get at
+ * Return: The value of the bit or -1 if an error occured
  */
-int main(void)
+int get_bit(unsigned long int n, unsigned int index)
 {
-  int n;
+	unsigned long int max = 0x01;
 
-  n = get_bit(1024, 10);
-  printf("%d\n", n);
-  n = get_bit(98, 1);
-  printf("%d\n", n);
-  n = get_bit(1024, 0);
-  printf("%d\n", n);
-  return (0);
+	max <<= index;
+	if (max == 0)
+		return (-1);
+
+	if ((n & max))
+		return (1);
+	else
+		return (0);
 }
-
